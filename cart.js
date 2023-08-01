@@ -3,6 +3,8 @@ const divPokemon = document.createElement('div');
 body.appendChild(divPokemon)
 const pokemonLocal = JSON.parse(localStorage.getItem("buyPokemon"));
 
+pokemonLocal.length === 0 ? divPokemon.innerText = 'Carrito Vacio' : localStorage.getItem("buyPokemon");
+
 pokemonLocal.forEach(pokemon => {
     const newArticlePok = document.createElement('article');
     newArticlePok.className = 'pkemon-article';
@@ -37,6 +39,4 @@ pokemonLocal.forEach(pokemon => {
     let pokemonDelete = pokemonLocal.filter(deletePoke => deletePoke.name !== pokemon.name)
     localStorage.setItem("buyPokemon",JSON.stringify(pokemonDelete));
     location.reload();
-
-
   }
